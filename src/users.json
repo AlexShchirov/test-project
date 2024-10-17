@@ -1,0 +1,9 @@
+ [
+    {"name": "Alex", "age": 26, "city": "Minsk"},
+    {"name": "Mary", "age": 25, "city": "Vitebsk"},
+    {"name": "Nataly", "age": 31, "city": "Grodno"},
+    {"name": "Anna", "age": 28, "city": "Gomel"},
+    {"name": "Pavel", "age": 21, "city": "Brest"},
+    {"name": "Victor", "age": 27, "city": "Mogilev"},
+    {"name": "Nastya", "age": 26, "city": "Myadel"}
+  ]
