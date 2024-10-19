@@ -6,6 +6,7 @@ import { Loader } from "../Loader";
 import { Error } from "../Error";
 import { WeatherCard } from "../WeatherCard/WeatherCard";
 import { CityType } from "../../types/city";
+import { Select } from "../Select/Select";
 
 export const WeatherWidget = () => {
   const { weatherInfo, getWeather, isLoading, error } = useWeatherRequest();
@@ -16,25 +17,27 @@ export const WeatherWidget = () => {
     getWeather(selectedCity);
   }, [selectedCity, getWeather]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    return <Error message={t("error")} />;
-  }
-
-  if (weatherInfo) {
-    return (
-      <div className="h-screen flex justify-center items-center">
-        <WeatherCard
-          {...weatherInfo}
-          selectedCity={selectedCity}
-          onCityChange={(selectedOption) => setSelectedCity(selectedOption.value)}
+  return (
+    <div className="h-screen flex justify-center items-center">
+      <div className="max-w-xl mx-auto p-4 border border-gray-200 rounded-lg shadow-md">
+        <Select
+          options={CITIES.map((city) => ({
+            value: city,
+            label: `${city.city}, ${city.code}`,
+          }))}
+          value={{ value: selectedCity, label: `${selectedCity.city}, ${selectedCity.code}` }}
+          onChange={(selectedOption) => setSelectedCity(selectedOption.value)}
+          placeholder={t("selectCity")}
+          className="mt-4 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        {isLoading ? (
+          <Loader />
+        ) : error ? (
+          <Error message={t("error")} />
+        ) : weatherInfo ? (
+          <WeatherCard {...weatherInfo} />
+        ) : null}
       </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 };

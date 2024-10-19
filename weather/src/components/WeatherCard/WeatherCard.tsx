@@ -1,10 +1,7 @@
 import React from "react";
 import { Card } from "flowbite-react";
 import { FaTemperatureHigh, FaTint, FaWind, FaCloud } from "react-icons/fa";
-import { Select } from "../Select/Select";
-import { CITIES } from "../../constants/cities";
 import { useTranslation } from "../../constants/translations";
-import { CityType } from "../../types/city";
 
 interface WeatherCardProps {
   name: string;
@@ -18,11 +15,9 @@ interface WeatherCardProps {
   clouds: {
     all: number;
   };
-  selectedCity: CityType;
-  onCityChange: (selectedOption: { value: CityType; label: string }) => void;
 }
 
-export const WeatherCard = ({ name, main, wind, clouds, selectedCity, onCityChange }: WeatherCardProps) => {
+export const WeatherCard = ({ name, main, wind, clouds }: WeatherCardProps) => {
   const { t } = useTranslation();
   const temperature = main.temp;
   const humidity = main.humidity;
@@ -50,16 +45,6 @@ export const WeatherCard = ({ name, main, wind, clouds, selectedCity, onCityChan
           {t("cloudiness")}: {cloudiness}%
         </p>
       </div>
-      <Select
-        options={CITIES.map((city) => ({
-          value: city,
-          label: `${city.city}, ${city.code}`,
-        }))}
-        value={{ value: selectedCity, label: `${selectedCity.city}, ${selectedCity.code}` }}
-        onChange={onCityChange}
-        placeholder={t("selectCity")}
-        className="mt-4 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
     </Card>
   );
 };
