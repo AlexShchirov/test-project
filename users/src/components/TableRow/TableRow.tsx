@@ -1,5 +1,5 @@
-import React from 'react';
-import { UserType } from '../../types/userType';
+import React from "react";
+import { UserType } from "../../types/userType";
 
 interface TableRowProps {
   user: UserType;
@@ -16,4 +16,3 @@ export const TableRow: React.FC<TableRowProps> = ({ user }) => {
     </tr>
   );
 };
-

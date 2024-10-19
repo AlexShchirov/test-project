@@ -1,5 +1,5 @@
 namespace NodeJS {
-    interface ProcessEnv {
-      WEATHER_API: string;
-    }
+  interface ProcessEnv {
+    WEATHER_API: string;
   }
+}

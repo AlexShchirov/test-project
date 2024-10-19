@@ -6,10 +6,7 @@ type FormLocationByCityUrl = {
   limit?: number;
 };
 
-export const formLocationByCityUrl = ({
-  city,
-  limit = 1,
-}: FormLocationByCityUrl) =>
+export const formLocationByCityUrl = ({ city, limit = 1 }: FormLocationByCityUrl) =>
   `http://api.openweathermap.org/geo/1.0/direct?q=${city.city},${city.code}&limit=${limit}&appid=${process.env.WEATHER_API}`;
 
 export const formWeatherRequest = ({ lat, lon }: LatAndLon) =>

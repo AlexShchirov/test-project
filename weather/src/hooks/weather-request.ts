@@ -14,15 +14,15 @@ export const useWeatherRequest = () => {
     try {
       const locations: CityLocation[] = await getLocationForCity(city);
 
-      const currentLocation =  locations[0];
+      const currentLocation = locations[0];
 
       const result = await getWeatherInformation(currentLocation);
 
       setWeatherInfo(result);
       setLoading(false);
-    } catch (er) {
-      if (er instanceof Error) {
-        setError(er);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error);
       }
       setLoading(false);
     }
@@ -32,6 +32,6 @@ export const useWeatherRequest = () => {
     getWeather,
     isLoading,
     error,
-    weatherInfo
-  }
+    weatherInfo,
+  };
 };

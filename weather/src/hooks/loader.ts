@@ -9,5 +9,5 @@ export const useLoader = () => {
     setLoading,
     error,
     setError,
-  }
-}
+  };
+};
