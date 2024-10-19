@@ -57,6 +57,10 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
     ],
   },
 
