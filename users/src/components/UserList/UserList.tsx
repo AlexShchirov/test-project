@@ -7,7 +7,6 @@ import { TextInput } from "../TextInput/TextInput";
 import { TableRow } from "../TableRow/TableRow";
 import { TRANSLATION } from "../../constants/translations";
 
-
 export const UserList = () => {
   const [userItem, setUserItem] = useState(EMPTY_STRING);
 
@@ -22,7 +21,7 @@ export const UserList = () => {
 
   return (
     <Card className="max-w-xl mx-auto p-4 border border-gray-200 rounded-lg shadow-md">
-      <h3 className="text-lg font-bold mb-4">User List</h3>
+      <h3 className="text-lg font-bold mb-4">{TRANSLATION.USER_LIST}</h3>
       <TextInput
         placeholder="Search by name"
         onChange={onChangeHandler}
@@ -39,7 +38,7 @@ export const UserList = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-          {filteredUsers.map((user: UserType) => (
+            {filteredUsers.map((user: UserType) => (
               <TableRow key={user.name} user={user} />
             ))}
           </tbody>
