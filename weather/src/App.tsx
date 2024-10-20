@@ -4,7 +4,7 @@ import { WeatherWidget } from "./components/WeatherWidget/WeatherWidget";
 
 const App = () => (
   <div className="container mx-auto p-4">
-    <h2 className="text-xl font-bold">Module 2</h2>
+    <h2 className="text-xl font-bold mt-20">Module 2</h2>
     <WeatherWidget />
   </div>
 );

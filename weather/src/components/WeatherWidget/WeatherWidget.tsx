@@ -18,8 +18,8 @@ export const WeatherWidget = () => {
   }, [selectedCity, getWeather]);
 
   return (
-    <div className="h-screen flex justify-center items-center">
-      <div className="max-w-xl mx-auto p-4 border border-gray-200 rounded-lg shadow-md">
+    <div className=" flex justify-center items-center ">
+      <div className="max-w-xl w-full mx-auto p-4 border border-gray-200 rounded-lg shadow-md max-w-[350px]">
         <Select
           options={CITIES.map((city) => ({
             value: city,
@@ -30,13 +30,15 @@ export const WeatherWidget = () => {
           placeholder={t("selectCity")}
           className="mt-4 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        {isLoading ? (
-          <Loader />
-        ) : error ? (
-          <Error message={t("error")} />
-        ) : weatherInfo ? (
-          <WeatherCard {...weatherInfo} />
-        ) : null}
+        <div className="mt-4 flex justify-center items-center min-h-[270px] ">
+          {isLoading ? (
+            <Loader />
+          ) : error ? (
+            <Error message={t("error")} />
+          ) : weatherInfo ? (
+            <WeatherCard {...weatherInfo} />
+          ) : null}
+        </div>
       </div>
     </div>
   );
